@@ -4,8 +4,18 @@ A Python SDK for interacting with Claude Code, Anthropic's AI-powered coding ass
 
 ## Installation
 
+This package is not available on PyPI and must be installed directly from git:
+
 ```bash
-pip install claude-code-sdk
+pip install git+https://github.com/mayflower/claude-code-sdk-python.git
+```
+
+Or for development:
+
+```bash
+git clone https://github.com/mayflower/claude-code-sdk-python.git
+cd claude-code-sdk-python
+pip install -e .
 ```
 
 ## Requirements
