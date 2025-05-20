@@ -74,7 +74,7 @@ def tool_usage_example():
     claude = ClaudeCode(
         auth_type=AuthType.ANTHROPIC_API,
         api_key=os.environ.get("ANTHROPIC_API_KEY"),
-        allowed_tools=["Bash(ls,cat,find)", "GlobTool", "GrepTool"]
+        allowed_tools=["Bash(ls,cat,find)", "Glob", "Grep"]
     )
     
     # Run a prompt that uses tools

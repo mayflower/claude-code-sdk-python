@@ -25,7 +25,7 @@ npm install -g @anthropic-ai/claude-code
 Then install the Python SDK:
 
 ```bash
-pip install claude-code-sdk
+pip install git+https://github.com/mayflower/claude-code-sdk-python.git
 ```
 
 ## Basic Usage
@@ -310,13 +310,19 @@ def generate_docs_for_module(module_path):
     3. Document each with descriptions, parameters, and return values
     4. Include examples of usage
     5. Create a table of contents
-    Write the documentation to a new file named "{module_path.replace('.py', '_docs.md')}"
+    Return the documentation as properly formatted markdown in your response (you'll need to save it to a file manually)
     """
     return claude.run_prompt(prompt)
 
 # Usage
 docs = generate_docs_for_module("my_project/utils.py")
-print("Documentation generated!")
+
+# Save the documentation to a file
+output_path = "my_project/utils_docs.md"
+with open(output_path, "w") as f:
+    f.write(docs)
+    
+print(f"Documentation generated and saved to {output_path}")
 ```
 
 ### AI-powered Code Review

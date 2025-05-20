@@ -28,10 +28,13 @@ pip install -e .
 ### Basic Usage
 
 ```python
-from claude_code import ClaudeCode
+from claude_code import ClaudeCode, AuthType
 
 # Initialize with Anthropic API key
-claude = ClaudeCode(api_key="your-api-key")
+claude = ClaudeCode(
+    auth_type=AuthType.ANTHROPIC_API,
+    api_key="your-api-key"
+)
 
 # Run a single prompt
 result = claude.run_prompt("Explain how this project works")
@@ -45,9 +48,12 @@ for chunk in claude.stream_prompt("Create a function to parse JSON"):
 ### Multi-turn Conversations
 
 ```python
-from claude_code import ClaudeCode
+from claude_code import ClaudeCode, AuthType
 
-claude = ClaudeCode(api_key="your-api-key")
+claude = ClaudeCode(
+    auth_type=AuthType.ANTHROPIC_API,
+    api_key="your-api-key"
+)
 
 # Start a conversation
 conversation = claude.start_conversation()
@@ -96,13 +102,16 @@ result = claude.run_prompt("Refactor this function")
 ### Configuring Tools
 
 ```python
-from claude_code import ClaudeCode
+from claude_code import ClaudeCode, AuthType
 
-claude = ClaudeCode(api_key="your-api-key")
+claude = ClaudeCode(
+    auth_type=AuthType.ANTHROPIC_API,
+    api_key="your-api-key"
+)
 
 # Configure allowed tools
 claude.configure(
-    allowed_tools=["Bash(git:*)", "View", "GlobTool", "GrepTool"],
+    allowed_tools=["Bash(git:*)", "View", "Glob", "Grep"],
     max_turns=5
 )
 
