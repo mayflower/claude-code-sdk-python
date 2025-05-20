@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m pytest tests/unit -v)",
+      "Bash(python -m pytest --cov=claude_code tests/unit)",
+      "Bash(python:*)"
+    ],
+    "deny": []
+  }
+}

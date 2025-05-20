@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "claude-code-sdk"
+version = "0.1.0"
+authors = [
+    {name = "Johann-Peter Hartmann", email = "johann-peter.hartmann@mayflower.de"},
+]
+description = "Python wrapper for Claude Code SDK"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "typing-extensions>=4.0.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/mayflower/claude-code-sdk-python"
+"Bug Tracker" = "https://github.com/mayflower/claude-code-sdk-python/issues"
+"Documentation" = "https://github.com/mayflower/claude-code-sdk-python/docs"
+
+[tool.setuptools]
+packages = ["claude_code"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+
+[tool.coverage.run]
+source = ["claude_code"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "pass",
+]
+
+[tool.ruff]
+target-version = "py38"
+line-length = 88
+select = ["E", "F", "I", "N", "W", "UP"]
+ignore = []
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
